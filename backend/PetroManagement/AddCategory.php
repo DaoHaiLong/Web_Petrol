@@ -23,106 +23,142 @@ if (strlen($_SESSION['aid'] == 0)) {
 
 ?>
   <!DOCTYPE html>
-  <html lang="en">
+<html lang="en">
 
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>Add Category</title>
-    <link href="vendors/jquery-toggles/css/toggles.css" rel="stylesheet" type="text/css">
-    <link href="vendors/jquery-toggles/css/themes/toggles-light.css" rel="stylesheet" type="text/css">
-    <link href="./resources/css/styles.css" rel="stylesheet" type="text/css">
-  </head>
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Latest compiled and minified CSS -->
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+        integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <link href="./resources/css/style1.css" rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+    <!-- Font Awesome JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"
+        integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ"
+        crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"
+        integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY"
+        crossorigin="anonymous"></script>
+</head>
 
-  <body>
+<body>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <!-- Popper.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"
+        integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
+        crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
+        integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
+        crossorigin="anonymous"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script>
+        $(document).ready(function () {
 
-    <!-- HK Wrapper -->
-    <div class="hk-wrapper hk-vertical-nav">
-      <!-- Top Navbar -->
-      <?php include_once('./includes/navbar.php');
-      include_once('./includes/sidebar.php');
-      ?>
 
-      <div id="hk_nav_backdrop" class="hk-nav-backdrop"></div>
-      <!-- /Vertical Nav -->
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('activenav_item');
 
-      <!-- Main Content -->
-      <div class="hk-pg-wrapper">
-        <!-- Breadcrumb -->
-        <nav class="hk-breadcrumb" aria-label="breadcrumb">
-          <ol class="breadcrumb breadcrumb-light bg-transparent">
-            <li class="breadcrumb-item"><a href="#">Category</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Add</li>
-          </ol>
-        </nav>
-        <!-- /Breadcrumb -->
+            });
 
-        <!-- Container -->
-        <div class="container">
-          <!-- Title -->
-          <div class="hk-pg-header">
-            <h4 class="hk-pg-title"><span class="pg-title-icon"><span class="feather-icon"><i data-feather="external-link"></i></span></span>Add Product</h4>
-          </div>
-          <!-- /Title -->
+        });
+    </script>
 
-          <!-- Row -->
-          <div class="row">
-            <div class="col-xl-12">
-              <section class="hk-sec-wrapper">
+    <div class="wrapper">
+        <nav id="sidebar">
 
-                <div class="row">
-                  <div class="col-sm">
-                    <form class="needs-validation" method="post" novalidate>
-
-                      <div class="form-row">
-                        <div class="col-md-6 mb-10">
-                          <label for="validationCustom03">ID</label>
-                          <input type="text" class="form-control" id="validationCustom03" placeholder="ID" name="id" required>
-                          <div class="invalid-feedback">Please provide a valid category name.</div>
-                        </div>
-                      </div>
-
-                      <div class="form-row">
-                        <div class="col-md-6 mb-10">
-                          <label for="validationCustom03">Category Name</label>
-                          <input type="text" class="form-control" id="validationCustom03" placeholder="CategoryName" name="category" required>
-                          <div class="invalid-feedback">Please provide a valid category code.</div>
-                        </div>
-                      </div>
-
-                      <button class="btn btn-primary" type="submit" name="submit">Submit</button>
-                    </form>
-                  </div>
-                </div>
-              </section>
-
+            <div class="sidebar-header">
+                <h4>
+                    Petro Management
+                </h4>
             </div>
-          </div>
+            <ul class="list-unstyled components">
+                <p><a href="./dasboard.php">Home</a></p>
+
+                <li class="activenav_item">
+                    <a href="javascript:void(0);" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"
+                        data-target="#categorydrp">Category</a>
+                    <ul id="categorydrp" class="collapse list-unstyled">
+                        <li>
+                            <a href="./AddCategory.php">Add</a>
+                        </li>
+                        <li>
+                            <a href="./DeleteCategoryManagment.php">Manage</a>
+                        </li>
+                    </ul>
+
+                </li>
+                <li class="activenav_item">
+                    <a href="javascript:void(0);" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"
+                        data-target="#Productdrp">Product </a>
+                    <ul id="Productdrp" class="collapse list-unstyled">
+                        <li>
+                            <a href="./AddProduct.php">Add</a>
+                        </li>
+                        <li>
+                            <a href="./DeleteProductManagement.php"> Manage</a>
+                        </li>
+                    </ul>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <div id="content">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+                    <button type="button" id="sidebarCollapse" class="btn btn-info">
+                        <i class="fas fa-align-left"></i>
+                        <span>Toggle Sidebar</span>
+                    </button>
+
+                </div>
+            </nav>
         </div>
+        <div class="container">
+            <div class="header">
+                <h4 class="header-item">
+                    <i class="fas fa-folder"></i>
+                    <span>Add Product</span>
+                </h4>
+            </div>
+            <div class="rowmain">
+                <div class="row">
+                    <div class="col-sm">
+                        <form class="needs-validation" method="post" novalidate>
+                            <div class="form-row">
+                                <div class="col-md-6 ">
+                                    <label for="validationCustom03">ID</label>
+                                    <input type="text" class="form-control" id="validationCustom03" placeholder="ID"
+                                        name="id" required>
+                                    <div class="invalid-feedback">Please provide a valid category name.</div>
+                                </div>
+                            </div>
 
-
-        <!-- Footer -->
-        <?php include_once('./includes/footer.php'); ?>
-        <!-- /Footer -->
-
-      </div>
-      <!-- /Main Content -->
-
+                            <div class="form-row">
+                                <div class="col-md-6">
+                                    <label for="validationCustom03">Category Name</label>
+                                    <input type="text" class="form-control" id="validationCustom03"
+                                        placeholder="CategoryName" name="category" required>
+                                    <div class="invalid-feedback">Please provide a valid category code.</div>
+                                </div>
+                            </div>
+                            <button class="btn btn-warning btn-lg btn-block" type="submit" name="submit">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <script src="vendors/jquery/dist/jquery.min.js"></script>
-    <script src="vendors/popper.js/dist/umd/popper.min.js"></script>
-    <script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="vendors/jasny-bootstrap/dist/js/jasny-bootstrap.min.js"></script>
-    <script src="./resources/js/jquery.slimscroll.js"></script>
-    <script src="./resources/js/dropdown-bootstrap-extended.js"></script>
-    <script src="./resources/js/feather.min.js"></script>
-    <script src="vendors/jquery-toggles/toggles.min.js"></script>
-    <script src="./resources/js/toggle-data.js"></script>
-    <script src="./resources/js/init.js"></script>
-    <script src="./resources/js/validation-data.js"></script>
 
-  </body>
+</body>
 
-  </html>
+</html>
 <?php } ?>

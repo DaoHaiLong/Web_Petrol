@@ -1,18 +1,18 @@
 <?php
 session_start();
 error_reporting(0);
-include('includes/config.php');
+include('./includes/config.php');
 if (isset($_POST['login'])) {
     $adminuser = $_POST['username'];
-    $password = md5($_POST['password']);
+    $password = ($_POST['password']);
     $query = mysqli_query($con, "select id from AdminUser where  AdminName='$adminuser' && PasswordAdmin='$password' ");
     $ret = mysqli_fetch_array($query);
     if ($ret > 0) {
         $_SESSION['aid'] = $ret['id'];
-        header('location:AddCategory.php');
+        header('location:dasboard.php');
     } else {
         echo "<script>alert('Invalid details. Please try again.');</script>";
-        echo "<script>window.location.href='dasboard.php'</script>";
+        echo "<script>window.location.href='./dasboard.php'</script>";
     }
 }
 ?>
@@ -25,7 +25,7 @@ if (isset($_POST['login'])) {
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     
     <!--------------------------------- css------------------------ -->
-    <link rel='stylesheet' type='text/css' media='screen' href='../resources/css/style.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='./resources/css/style.css'>
 
     
     <!--------------------------------- JS ------------------------ -->

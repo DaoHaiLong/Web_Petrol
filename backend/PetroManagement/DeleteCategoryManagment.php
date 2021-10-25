@@ -15,107 +15,179 @@ if(isset($_GET['del']))
     // Query implements
     $query=mysqli_query($con,"delete from Category where id='$inputpid'");
     // windowns  box information
-    echo "<script>alert('Category element deleted.');</script>";   
-    echo "<script>window.location.href='./DeleteCategoryManagement.php'</script>";
+   if ($query){
+         echo "<script>alert('Category element deleted successfully');</script>";   
+         echo "<script>window.location.href='./DeleteCategoryManagment.php'</script>";
+   }else{
+         echo "<script>alert('Something went wrong. Please try again.');</script>";
+         echo "<script>window.location.href='./DeleteCategoryManagment.php'</script>";  
+  }
 }
 
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="vendors/jquery-toggles/css/toggles.css" rel="stylesheet" type="text/css">
-    <link href="vendors/jquery-toggles/css/themes/toggles-light.css" rel="stylesheet" type="text/css">
-    <link href="./resources/css/styles.css" rel="stylesheet" type="text/css">
-    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+        integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <link href="./resources/css/style1.css" rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+    <!-- Font Awesome JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"
+        integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ"
+        crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"
+        integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY"
+        crossorigin="anonymous"></script>
 </head>
+
 <body>
-<div class="hk-wrapper hk-vertical-nav">
-<!-- Top Navbar -->
-<?php include_once('./includes/navbar.php');
-include_once('./includes/sidebar.php');
-?>
-        <div id="hk_nav_backdrop" class="hk-nav-backdrop"></div>
-        <!-- /Vertical Nav -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <!-- Popper.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"
+        integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
+        crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
+        integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
+        crossorigin="anonymous"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script>
+        $(document).ready(function () {
 
-        <!-- Main Content -->
-        <div class="hk-pg-wrapper">
-            <!-- Breadcrumb -->
-            <nav class="hk-breadcrumb" aria-label="breadcrumb">
-                <ol class="breadcrumb breadcrumb-light bg-transparent">
-<li class="breadcrumb-item"><a href="#">Category</a></li>
-<li class="breadcrumb-item active" aria-current="page">Manage</li>
-                </ol>
-            </nav>
-            <!-- /Breadcrumb -->
 
-            <!-- Container -->
-            <div class="container">
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('activenav_item');
 
-                <!-- Title -->
-<div class="hk-pg-header">
- <h4 class="hk-pg-title"><span class="pg-title-icon"><span class="feather-icon"><i data-feather="database"></i></span></span>Manage Categories</h4>
+            });
+
+        });
+    </script>
+
+    <div class="wrapper">
+        <nav id="sidebar">
+
+            <div class="sidebar-header">
+                <h4>
+                    Petro Management
+                </h4>
+            </div>
+            <ul class="list-unstyled components">
+                <p><a href="./dasboard.php">Home</a></p>
+
+                <li class="activenav_item">
+                    <a href="javascript:void(0);" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"
+                        data-target="#categorydrp">Category</a>
+                    <ul id="categorydrp" class="collapse list-unstyled">
+                        <li>
+                            <a href="./AddCategory.php">Add</a>
+                        </li>
+                        <li>
+                            <a href="./DeleteCategoryManagment.php">Manage</a>
+                        </li>
+                    </ul>
+
+                </li>
+                <li class="activenav_item">
+                    <a href="javascript:void(0);" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"
+                        data-target="#Productdrp">Product </a>
+                    <ul id="Productdrp" class="collapse list-unstyled">
+                        <li>
+                            <a href="./AddProduct.php">Add</a>
+                        </li>
+                        <li>
+                            <a href="./DeleteProductManagement.php"> Manage</a>
+                        </li>
+                    </ul>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <div id="content">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+                    <button type="button" id="sidebarCollapse" class="btn btn-info">
+                        <i class="fas fa-align-left"></i>
+                        <span>Toggle Sidebar</span>
+                    </button>
+
                 </div>
-                <!-- /Title -->
+            </nav>
+        </div>
 
-                <!-- Row -->
-                <div class="row">
-                    <div class="col-xl-12">
-                        <section class="hk-sec-wrapper">
-                            <div class="row">
-                                <div class="col-sm">
-                                    <div class="table-wrap">
-                                        <table id="datable_1" class="table table-hover w-100 display pb-30">
-                                            <thead>
-                                                <tr>
-                                                    <th>id</th>
-                                                    <th>Category Name</th>
-                                                    
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-<?php
-$rno=mt_rand(10000,99999);  
-$query=mysqli_query($con,"select * from Category");
-$cnt=1;
-while($row=mysqli_fetch_array($query))
-{    
-?>                                                
-<tr>
-<td><?php echo $cnt;?></td>
-<td><?php echo $row['id'];?></td>
-<td><?php echo $row['CategoryName'];?></td>
-<td>
-<a href="./UppdateCategory.php?catid=<?php echo base64_encode($row['id'].$rno);?>" class="mr-25" data-toggle="tooltip" data-original-title="Edit"> <i class="icon-pencil"></i></a>
-<a href="./DeleteCategoryManagment.php?del=<?php echo base64_encode($row['id'].$rno);?>" data-toggle="tooltip" data-original-title="Delete" onclick="return confirm('Do you really want to delete?');"> <i class="icon-trash txt-danger"></i> </a>
-</td>
-</tr>
-<?php 
-$cnt++;
-} ?>
-                                                
-                                            </tbody>
-                                        </table>
-                                    </div>
+        <div class="container-edit">
+            <div class="header_edit">
+                <h4 class="header-item-edit">
+                    <i class="fas fa-folder"></i>
+                    <span>Manage Category</span>
+                </h4>
+            </div>
+            <div class="row-edit">
+                <div class="col-xl-8">
+                    <section class="hk-sec-wrapper">
+                        <div class="row">
+                            <div class="col-sm">
+                                <div class="table-wrap">
+                                    <table id="datable_1" class="table table-hover w-120 display pb-25">
+                                        <thead>
+                                            <tr>
+                                                <th></th>
+                                                <th>id</th>
+                                                <th>Category Name</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php
+                                                $rno=mt_rand(10000,99999);  
+                                                $query=mysqli_query($con,"select * from Category");
+                                                $cnta=1;
+                                                while($row=mysqli_fetch_array($query))
+                                                {    
+                                            ?>
+                                            <tr>
+                                                <td>
+                                                    <?php echo $cnta;?>
+                                                </td>
+                                                <td>
+                                                    <?php echo $row['id'];?>
+                                                </td>
+                                                <td>
+                                                    <?php echo $row['CategoryName'];?>
+                                                </td>
+                                                <td>
+                                                    <a href="./UppdateCategory.php?catid=<?php echo base64_encode($row['id'].$rno);?>"
+                                                        class="mr-25" data-toggle="tooltip" data-original-title="Edit">
+                                                        <i class="fas fa-pencil-alt"></i></a>
+                                                    <a href="./DeleteCategoryManagment.php?del=<?php echo base64_encode($row['id'].$rno);?>"
+                                                        data-toggle="tooltip" data-original-title="Delete"
+                                                        onclick="return confirm('Do you really want to delete?');"> <i
+                                                            class="fas fa-trash"></i> </a>
+                                                </td>
+                                            </tr>
+                                              <?php 
+                                                 $cnta++;
+                                            } ?>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
-                        </section>
+                        </div>
+                    </section>
 
-                    </div>
                 </div>
-                <!-- /Row -->
-
             </div>
-            <!-- /Container -->
-
-            <!-- Footer -->
-<?php include_once('includes/footer.php');?>
-            <!-- /Footer -->
         </div>
-        <!-- /Main Content -->
     </div>
 </body>
+
 </html>
 <?php } ?>
