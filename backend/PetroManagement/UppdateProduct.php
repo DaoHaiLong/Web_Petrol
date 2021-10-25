@@ -92,6 +92,19 @@ if (strlen($_SESSION['aid'] == 0)) {
             </ul>
             </a>
           </li>
+        <li class="activenav_item">
+                    <a href="javascript:void(0);" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"
+                        data-target="#Account">Account </a>
+                    <ul id="Account" class="collapse list-unstyled">
+                        <li>
+                            <a href="./ChangePass.php">Change Password</a>
+                        </li>
+                        <li>
+                            <a href="./logout.php"> Logout</a>
+                        </li>
+                    </ul>
+                    
+                </li>
         </ul>
       </nav>
       <div id="content">

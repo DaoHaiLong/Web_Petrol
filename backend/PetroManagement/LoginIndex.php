@@ -12,7 +12,7 @@ if (isset($_POST['login'])) {
         header('location:dasboard.php');
     } else {
         echo "<script>alert('Invalid details. Please try again.');</script>";
-        echo "<script>window.location.href='./dasboard.php'</script>";
+        echo "<script>window.location.href='./ChangePass.php'</script>";
     }
 }
 ?>

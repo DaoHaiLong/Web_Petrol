@@ -106,7 +106,20 @@ if (strlen($_SESSION['aid'] == 0)) {
                             <a href="./DeleteProductManagement.php"> Manage</a>
                         </li>
                     </ul>
-                    </a>
+                    
+                </li>
+            <li class="activenav_item">
+                    <a href="javascript:void(0);" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"
+                        data-target="#Account">Account </a>
+                    <ul id="Account" class="collapse list-unstyled">
+                        <li>
+                            <a href="./ChangePass.php">Change Password</a>
+                        </li>
+                        <li>
+                            <a href="./logout.php"> Logout</a>
+                        </li>
+                    </ul>
+                    
                 </li>
             </ul>
         </nav>
@@ -125,7 +138,7 @@ if (strlen($_SESSION['aid'] == 0)) {
             <div class="header">
                 <h4 class="header-item">
                     <i class="fas fa-folder"></i>
-                    <span>Add Product</span>
+                    <span>Add Category</span>
                 </h4>
             </div>
             <div class="rowmain">

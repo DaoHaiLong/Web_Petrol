@@ -18,14 +18,10 @@ $catexp=$_POST['exports'];
 
 // Query implements
 $query=mysqli_query($con,"insert into Product(id,CategoryId,productName,Price,StatusProduct,importNum,exportNum) values('$catproid','$catcategid','$catproductname','$catpprice','$catpstauts','$catimp','$catexp')"); 
-if($query) {
-  echo "<script>alert('Category added successfully.');</script>";   
-  echo "<script>window.location.href='./AddProduct.php'</script>"; 
-} 
-else {
-  echo "<script>alert('Something went wrong. Please try again.');</script>";   
-  echo "<script>window.location.href='./AddProduct.php'</script>";    
- }
+
+echo "<script>alert('Product added successfully.');</script>";   
+echo "<script>window.location.href='./DeleteProductManagement.php'</script>"; 
+
 }
 
 ?>
@@ -87,7 +83,7 @@ else {
                 </h4>
             </div>
             <ul class="list-unstyled components">
-                <p><a href="./AddCategory.php"></a>Home</p>
+                <p><a href="./dasboard.php">Home</a></p>
 
                 <li class="activenav_item">
                     <a href="javascript:void(0);" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"
@@ -115,6 +111,19 @@ else {
                     </ul>
                     </a>
                 </li>
+              <li class="activenav_item">
+                    <a href="javascript:void(0);" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"
+                        data-target="#Account">Account </a>
+                    <ul id="Account" class="collapse list-unstyled">
+                        <li>
+                            <a href="./ChangePass.php">Change Password</a>
+                        </li>
+                        <li>
+                            <a href="./logout.php"> Logout</a>
+                        </li>
+                    </ul>
+                    
+                </li>
             </ul>
         </nav>
         <div id="content">
@@ -129,16 +138,16 @@ else {
             </nav>
         </div>
         <div class="container">
-            <div class="header">
+            <div class="header-addpro">
                 <h4 class="header-item">
                     <i class="fas fa-folder"></i>
                     <span>Add Product</span>
                 </h4>
             </div>
-            <div class="rowmain">
-                <div class="row">
+            <div class="row-addpro">
+                <div class="rowpro">
                     <div class="col-sm">
-                        <form class="needs-validation" method="post" novalidate>
+                        <form class="need-validation" method="post" novalidate>
                             <div class="form-row">
                                 <div class="col-md-6 ">
                                     <label for="validationCustom03">ID</label>
@@ -186,6 +195,7 @@ else {
                                     <!-- <input type="text" class="form-control" id="validationCustom03"
                                         placeholder="StatusProduct" name="status" required> -->
                                         <select class="form-control" placeholder="Status"  name="status" id="validationCustom03" required>
+                                            <option value="">Select Status Product</option>
                                             <option value="">remaining</option>
                                             <option value="">Sold out</option>
                                         </select>
@@ -216,7 +226,8 @@ else {
             </div>
         </div>
     </div>
-            
+    <script src="./resources/js/validation-data.js"></script> 
+    <script src="./resources/js/init.js"></script>
 </body>
 </html>
 <?php } ?>

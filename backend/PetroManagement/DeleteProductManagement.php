@@ -10,9 +10,9 @@ if (strlen($_SESSION['aid']==0)) {
 if(isset($_GET['del']))
 {    
     // get input id your put in the data
-    $inputppid=substr(base64_decode($_GET['del']),0,-5); 
+    $pid=substr(base64_decode($_GET['del']),0,-5); 
     // Query implements
-    $query=mysqli_query($con,"delete from Product where id='$inputppid'");
+    $query=mysqli_query($con,"delete from Product where id='$pid'");
     // windowns  box information
     if ($query){
         echo "<script>alert('Product element deleted successfully');</script>";   
@@ -80,7 +80,7 @@ if(isset($_GET['del']))
                 </h4>
             </div>
             <ul class="list-unstyled components">
-                <p><a href="./dasboard.php"></a>Home</p>
+                 <p><a href="./dasboard.php">Home</a></p>
 
                 <li class="activenav_item">
                     <a href="javascript:void(0);" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"
@@ -108,6 +108,19 @@ if(isset($_GET['del']))
                     </ul>
                     </a>
                 </li>
+              <li class="activenav_item">
+                    <a href="javascript:void(0);" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"
+                        data-target="#Account">Account </a>
+                    <ul id="Account" class="collapse list-unstyled">
+                        <li>
+                            <a href="./ChangePass.php">Change Password</a>
+                        </li>
+                        <li>
+                            <a href="./logout.php"> Logout</a>
+                        </li>
+                    </ul>
+                    
+                </li>
             </ul>
         </nav>
         <div id="content">
@@ -126,7 +139,7 @@ if(isset($_GET['del']))
             <div class="header_edit-pro">
                 <h4 class="header-item-edit-pro">
                     <i class="fas fa-folder"></i>
-                    <span>Manage Category</span>
+                    <span>Manage Product</span>
                 </h4>
             </div>
             <div id="scroll" class="row-edit-pro">
