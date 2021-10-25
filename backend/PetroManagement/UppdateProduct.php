@@ -7,25 +7,28 @@ if (strlen($_SESSION['aid'] == 0)) {
   // Add Category Code
   if (isset($_POST['update'])) {
     // get input id your put in the data
-    $pid=substr(base64_decode($_GET['pid']),0,-5); 
+    $proid = substr(base64_decode($_GET['proid']), 0, -5);
     //Getting Post Values
-   // $catproid  = $_POST['Id'];
-    $catcategid = $_POST['cateId'];
-    $catproductname = $_POST['name'];
-    $catpprice = $_POST['proprice'];
-    $catpstauts = $_POST['status'];
-    $catimp = $_POST['imports'];
-    $catexp = $_POST['exports'];
+    $catId = $_POST['catId'];
+    $catpid = $_POST['catpid'];
+    $catpname = $_POST['catpname'];
+    $catpprice = $_POST['catpprice'];
+    $catpstaut = $_POST['catpstaut'];
+    $catimpt = $_POST['catimpt'];
+    $catexpt = $_POST['catexpt'];
 
     // Query implements
-    $query = mysqli_query($con, "update Product set CategoryId='$catcategid',productName='$catproductname',Price='$catpprice',StatusProduct='$catpstauts',importNum='$catimp' ,exportNum='$catexp',where id='$pid'");
-    // windowns  box information
-    echo "<script>alert('Update product successfully.');</script>";
-    // echo "<script>window.location.href='./DeleteProductManagement.php'</script>";
+    $query = mysqli_query($con, "update Product set CategoryId='$catpid',productName=' $catpname',Price='$catpprice',StatusProduct='$catpstaut',importNum='$catimpt' ,exportNum='$catexpt' where id='$proid' ");
+    if ($query) {
+      echo "<script>alert('Product updated successfully.');</script>";
+      echo "<script>window.location.href='./DeleteProductManagement.php'</script>";
+    } else {
+      echo "<script>alert('Something went wrong. Please try again.');</script>";
+      echo "<script>window.location.href='./DeleteProductManagement.php'</script>";
+    }
   }
 ?>
-
-<!DOCTYPE html>
+  <!DOCTYPE html>
   <html lang="en">
 
   <head>
@@ -51,15 +54,12 @@ if (strlen($_SESSION['aid'] == 0)) {
       $(document).ready(function() {
         $('#sidebarCollapse').on('click', function() {
           $('#sidebar').toggleClass('activenav_item');
-
         });
-
       });
     </script>
 
     <div class="wrapper">
       <nav id="sidebar">
-
         <div class="sidebar-header">
           <h4>
             Petro Management
@@ -67,7 +67,6 @@ if (strlen($_SESSION['aid'] == 0)) {
         </div>
         <ul class="list-unstyled components">
           <p><a href="./dasboard.php">Home</a></p>
-
           <li class="activenav_item">
             <a href="javascript:void(0);" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" data-target="#categorydrp">Category</a>
             <ul id="categorydrp" class="collapse list-unstyled">
@@ -78,7 +77,6 @@ if (strlen($_SESSION['aid'] == 0)) {
                 <a href="./DeleteCategoryManagment.php">Manage</a>
               </li>
             </ul>
-
           </li>
           <li class="activenav_item">
             <a href="javascript:void(0);" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" data-target="#Productdrp">Product </a>
@@ -92,21 +90,21 @@ if (strlen($_SESSION['aid'] == 0)) {
             </ul>
             </a>
           </li>
-        <li class="activenav_item">
-                    <a href="javascript:void(0);" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"
-                        data-target="#Account">Account </a>
-                    <ul id="Account" class="collapse list-unstyled">
-                        <li>
-                            <a href="./ChangePass.php">Change Password</a>
-                        </li>
-                        <li>
-                            <a href="./logout.php"> Logout</a>
-                        </li>
-                    </ul>
-                    
-                </li>
+          <li class="activenav_item">
+            <a href="javascript:void(0);" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" data-target="#Account">Account </a>
+            <ul id="Account" class="collapse list-unstyled">
+              <li>
+                <a href="./ChangePass.php">Change Password</a>
+              </li>
+              <li>
+                <a href="./logout.php"> Logout</a>
+              </li>
+            </ul>
+
+          </li>
         </ul>
       </nav>
+
       <div id="content">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
           <div class="container-fluid">
@@ -114,10 +112,10 @@ if (strlen($_SESSION['aid'] == 0)) {
               <i class="fas fa-align-left"></i>
               <span>Toggle Sidebar</span>
             </button>
-
           </div>
         </nav>
       </div>
+
       <div class="container-uppro">
         <div class="header-uppro">
           <h4 class="header-item-uppro">
@@ -132,50 +130,50 @@ if (strlen($_SESSION['aid'] == 0)) {
                 <div class="col">
                   <form class="needs-validation" method="post" novalidate>
                     <?php
-                    $pid = substr(base64_decode($_GET['pid']), 0, -5);
-                   $query = mysqli_query($con, "select * from Product where id='$pid'");
-                   while ($result = mysqli_fetch_array($query)) {
-                   ?>
+                    $proid = substr(base64_decode($_GET['proid']), 0, -5);
+                    $query = mysqli_query($con, "select * from Product where id='$proid' ");
+                    while ($result = mysqli_fetch_array($query)) {
+                    ?>
                       <div class="form-roww">
                         <div class="col-md-6">
                           <label for="validationCustom03">Category Id</label>
-                          <input type="text" class="form-control" id="validationCustom03" value="<?php echo $result['CategoryId']; ?>" name="cateId" required>
-                            <div class="invalid-feedback">Please provide a valid category id.</div>
+                          <input  class="form-control" id="validationCustom03" type="text" name="catpid" value="<?php echo $result['CategoryId']; ?>" required>
+                          <div class="invalid-feedback">Please provide a valid category id.</div>
                         </div>
                       </div>
                       <div class="form-roww">
                         <div class="col-md-6">
                           <label for="validationCustom03">Product Name</label>
-                          <input type="text" class="form-control" id="validationCustom03" value="<?php echo $result['productName']; ?>" name="name" required>
-                          <div class="invalid-feedback">Please provide a valid category code.</div>
+                          <input  class="form-control" id="validationCustom03" type="text" name="catpname" value="<?php echo $result['productName']; ?>" required>
+                          <div class="invalid-feedback">Please provide a valid category name.</div>
                         </div>
                       </div>
                       <div class="form-roww">
                         <div class="col-md-6">
                           <label for="validationCustom03">Price</label>
-                          <input type="text" class="form-control" id="validationCustom03" value="<?php echo $result['Price']; ?>" name="proprice" required>
-                          <div class="invalid-feedback">Please provide a valid category code.</div>
+                          <input  class="form-control" id="validationCustom03" type="text" name="catpprice" value="<?php echo $result['Price']; ?>" required>
+                          <div class="invalid-feedback">Please provide a valid category price.</div>
                         </div>
                       </div>
                       <div class="form-roww">
                         <div class="col-md-6">
                           <label for="validationCustom03">Status</label>
-                          <input type="text" class="form-control" id="validationCustom03" value="<?php echo $result['StatusProduct']; ?>" name="status" required>
-                          <div class="invalid-feedback">Please provide a valid category code.</div>
+                          <input  class="form-control" id="validationCustom03" type="text" name="catpstaut" value="<?php echo $result['StatusProduct']; ?>" required>
+                          <div class="invalid-feedback">Please provide a valid category status.</div>
                         </div>
                       </div>
                       <div class="form-roww">
                         <div class="col-md-6">
-                          <label for="validationCustom03">Inport</label>
-                          <input type="text" class="form-control" id="validationCustom03" value="<?php echo $result['importNum']; ?>" name="imports" required>
-                          <div class="invalid-feedback">Please provide a valid category code.</div>
+                          <label for="validationCustom03">Import</label>
+                          <input class="form-control" id="validationCustom03" type="text" name="catimpt" value="<?php echo $result['importNum']; ?>" required>
+                          <div class="invalid-feedback">Please provide a valid category import.</div>
                         </div>
                       </div>
                       <div class="form-roww">
                         <div class="col-md-6">
                           <label for="validationCustom03">Export</label>
-                          <input type="text" class="form-control" id="validationCustom03" value="<?php echo $result['exportNum']; ?>" name="exports" required>
-                          <div class="invalid-feedback">Please provide a valid category code.</div>
+                          <input class="form-control" id="validationCustom03" type="text" name="catexpt" value="<?php echo $result['exportNum']; ?>" required>
+                          <div class="invalid-feedback">Please provide a valid category export.</div>
                         </div>
                       </div>
                     <?php } ?>

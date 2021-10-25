@@ -7,7 +7,7 @@ CREATE TABLE AdminUser(
 );
 
 INSERT INTO AdminUser(id,AdminName,PasswordAdmin)
-VALUES(1,'project','f925916e2754e5e03f75dd58a5733251');
+VALUES(1,'project','admin');
 
 CREATE TABLE Category (
 id INT NOT NULL PRIMARY KEY,
@@ -16,12 +16,11 @@ CategoryName VARCHAR(100)
 );
 
 CREATE TABLE Product (
-id INT NOT NULL PRIMARY KEY,
+id BIGINT(200) NOT NULL PRIMARY KEY,
 CategoryId INT NOT NULL REFERENCES Category(id),
 productName  VARCHAR(100) NOT NULL,
 Price FLOAT NOT NULL,
 StatusProduct TEXT NOT NULL,
-CHECK(StatusProduct="remaining" OR StatusProduct="Sold out"),
 importNum     FLOAT NOT NULL,
 exportNum    FLOAT NOT NULL
 );
