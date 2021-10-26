@@ -187,8 +187,8 @@ if (strlen($_SESSION['aid'] == 0)) {
                 </div>
             </div>
         </div>
-        <script src="./resources/js/validation-data.js"></script>
-        <script src="./resources/js/init.js"></script>
+        <!-- <script src="./resources/js/validation-data.js"></script>
+        <script src="./resources/js/init.js"></script> -->
     </body>
 
     </html>

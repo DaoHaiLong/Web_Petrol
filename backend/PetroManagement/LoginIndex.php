@@ -25,7 +25,7 @@ if (isset($_POST['login'])) {
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     
     <!--------------------------------- css------------------------ -->
-    <link rel='stylesheet' type='text/css' media='screen' href='./resources/css/style.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='./assets/css/login.css'>
 
     
     <!--------------------------------- JS ------------------------ -->
@@ -57,7 +57,7 @@ if (isset($_POST['login'])) {
                         </div>
                         <div class="hr"></div>
                         <div class="foot-lnk">
-                            <a href="#forgot">Forgot Password?</a>
+                            <a href="./ChangePass.php">Welcome</a>
                         </div>
                     </div>
                 </div>

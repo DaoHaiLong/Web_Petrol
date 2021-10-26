@@ -62,8 +62,6 @@ if(isset($_GET['del']))
         src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
     <script>
         $(document).ready(function () {
-
-
             $('#sidebarCollapse').on('click', function () {
                 $('#sidebar').toggleClass('activenav_item');
 
