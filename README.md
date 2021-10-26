@@ -11,6 +11,8 @@ Có 2 bảng
 MVC: 
 2. Front_end: Cường + Hiếu + Chương 
 ==> Tìm ảnh + thông tin sản phẩm
-3. Back_end: Long, Sơn, Hòa + Chương 
-==> Làm thế nào để link đến SQL, làm thế nào để connect với front end, làm thế nào để lấy data từ database đổ lên front end.
-4. API: Chương
+3. Back_end: Long, Sơn, Hòa 
+==> Connect php vs sql, truy vấn data từ backend lên fontend
+
+ 
+4. API??: Chương 
