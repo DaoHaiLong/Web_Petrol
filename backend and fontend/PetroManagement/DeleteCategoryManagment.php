@@ -75,7 +75,7 @@ if(isset($_GET['del']))
 
             <div class="sidebar-header">
                 <h4>
-                    Petro Management
+                Petrol Management
                 </h4>
             </div>
             <ul class="list-unstyled components">
@@ -136,7 +136,7 @@ if(isset($_GET['del']))
 
         <div class="container-edit">
             <div class="header_edit">
-                <h4 class="header-item-edit">
+                <h4 class="header-item-edit" >
                     <i class="fas fa-folder"></i>
                     <span>Manage Category</span>
                 </h4>

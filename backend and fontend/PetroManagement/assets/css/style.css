@@ -498,7 +498,7 @@ body {
 }
 
 .static_area .static__content {
-    padding: 36px 5px;
+    height: 111px;
 }
 
 .static_area .static__content h2 {
@@ -761,7 +761,7 @@ body {
     padding-top: 60px;
 }
 .brand .items{
-    padding: 0 10px;
+    padding: 0px 10px;
 }
 
 .brand_slider {
@@ -932,7 +932,6 @@ body {
 .footer .footer_right .store img {
     width: 15rem;
 }
-
 @media(max-width:576px) {
     .footer .footer_right .email {
         padding-left: 15px;

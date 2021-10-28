@@ -56,7 +56,7 @@ if (strlen($_SESSION['aid'] == 0)) {
             <nav id="sidebar">
                 <div class="sidebar-header">
                     <h4>
-                        Petro Management
+                    Petrol Management
                     </h4>
                 </div>
                 <ul class="list-unstyled components">

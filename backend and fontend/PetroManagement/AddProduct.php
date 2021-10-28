@@ -30,7 +30,7 @@ if (strlen($_SESSION['aid'] == 0)) {
     }
 
 ?>
-    <!DOCTYPE html>
+     <!DOCTYPE html>
     <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -63,7 +63,7 @@ if (strlen($_SESSION['aid'] == 0)) {
             <nav id="sidebar">
                 <div class="sidebar-header">
                     <h4>
-                        Petro Management
+                    Petrol Management
                     </h4>
                 </div>
                 <ul class="list-unstyled components">
@@ -187,8 +187,7 @@ if (strlen($_SESSION['aid'] == 0)) {
                 </div>
             </div>
         </div>
-        <!-- <script src="./resources/js/validation-data.js"></script>
-        <script src="./resources/js/init.js"></script> -->
+    
     </body>
 
     </html>

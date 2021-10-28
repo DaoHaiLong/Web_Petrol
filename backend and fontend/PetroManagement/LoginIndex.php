@@ -12,7 +12,7 @@ if (isset($_POST['login'])) {
         header('location:dasboard.php');
     } else {
         echo "<script>alert('Invalid details. Please try again.');</script>";
-        echo "<script>window.location.href='./ChangePass.php'</script>";
+        echo "<script>window.location.href='./LoginIndex.php'</script>";
     }
 }
 ?>
@@ -57,7 +57,7 @@ if (isset($_POST['login'])) {
                         </div>
                         <div class="hr"></div>
                         <div class="foot-lnk">
-                            <a href="./ChangePass.php">Welcome</a>
+                            <a href="./index.html">Welcome</a>
                         </div>
                     </div>
                 </div>

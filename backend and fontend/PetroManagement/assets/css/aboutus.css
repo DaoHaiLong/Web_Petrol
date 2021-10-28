@@ -36,6 +36,9 @@ li {
 .d-flex {
     display: flex;
 }
+.padding_0{
+    padding: 0;
+}
 
 .justify_content_space_between {
     justify-content: space-between;
@@ -384,24 +387,27 @@ body {
 }
 /* Start banner section */
 .banner{
-    height: 75vh;
+    height: 60vh;
     width: 100%;
-    animation-name: customZoomBg;
     overflow: hidden;
-   
+}
+.banner .container-fluid{
+    padding: 0 0;
 }
 .banner .banner_zoom{
     height:100%;
     background-image: url("https://portals.petrolimex.com.vn/_themes/sunrise/img/about-page-title.jpg");
     background-position: center center;
     background-size: cover;
+    transition: 2s;
 }
+
 .banner .banner_zoom:hover {
     transform: scale(1.3,1.3);
-    transition:  all 3s;
+    transition:  all 2s;
     background-size: 110% 110%;
 }
-.banner .banner_title{
+.banner .banner_zoom .banner_title{
     text-transform: uppercase;
     color: white;
     font-size: 60px;
@@ -417,9 +423,17 @@ body {
         transform: scale(1);
     }
 }
+
+@media(max-width:576px) {
+    .banner .banner_zoom .banner_title {
+        font-size: 15px;
+    }
+}
+
+
+/* start specific details part */
 .specific_details{
     width: 100%;
-    height: 120vh;
     padding-top: 80px;
     padding-bottom: 100px;
 }
@@ -438,6 +452,7 @@ body {
     border-bottom: 1px;
     border-color: black;
 
+
 }
 strong{
     color: black;
@@ -450,8 +465,8 @@ p{
     font-size: 18px;
 }
 hr{
-    margin-top: 30px;
-    margin-bottom: 45px;
+    margin-top: 5px;
+    margin-bottom: 30px;
 }
 h2 {
     display: block;
@@ -465,6 +480,20 @@ h2 {
     margin-bottom: 0px;
     padding-top: 10px;
 }
+@media(max-width:576px) {
+    .specific_details{
+        padding-top: 33px !important;
+        padding-bottom: 0px !important;
+    }
+    .specific_details .details_title h2{
+        font-size: 25px;
+    }
+    .specific_details .details_title p{
+        line-height: 1.4;
+        font-size: 15px;
+    }
+}
+
 /* end specific details part */
 
 /* members part */
@@ -476,6 +505,7 @@ h2 {
     font-style: bold;
     font-family: "SF Pro Display",sans-serif;
     font-size: 30px;
+    margin-bottom: 50px;
 }
 .member .title span{
     padding: 5px;
@@ -560,9 +590,28 @@ h2 {
     margin: 1rem auto 3rem;
     width: max-content;
 }
+.member .box .list-social .list-item .facebook {
+    background-color: rgb(4, 57, 235);
+}
+
+.member .box .list-social .list-item .twitter {
+    background-color: rgb(18, 114, 240);
+}
+
+.member .box .list-social .list-item .google {
+    background-color: rgb(252, 53, 17);
+}
+
+.member .box .list-social .list-item .linkedin {
+    background-color: rgb(46, 66, 248);
+}
 
 .member .box .list-social .list-item {
     transition: 0.5s;
+}
+
+.member .box .list-social .list-item:hover {
+    transform: rotateY(360deg);
 }
 
 .member .box .list-social .list-item .list-link {
@@ -575,4 +624,189 @@ h2 {
     color: white;
     margin: 1rem;
     border-radius: 50%;
+}
+@media(max-width:576px) {
+    .member{
+        padding: 2rem 0;
+    }
+    .member .title {
+        font-size: 15px;
+        margin-bottom: 30px;
+    }
+}
+/* ================== 12, footer Section ================== */
+
+.background_left {
+    background: #f6f6f6;
+}
+
+.background_right {
+    background: #efefef;
+}
+
+.footer .footer_left {
+    padding: 5rem 0;
+}
+
+.footer .footer_right {
+    padding: 5rem 0;
+}
+
+.footer .footer_left-logo {
+    margin-bottom: 2.5rem;
+}
+
+.footer .footer_left-logo img {
+    width: 18rem;
+}
+
+.footer .contact {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+.footer .contact .contact_icon {
+    margin-right: 15px;
+}
+
+.footer .contact .contact_info p {
+    font-size: 16px;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+}
+
+.footer .contact .contact_info span {
+    font-size: 22px;
+    font-weight: 600;
+    color: #253237;
+    margin: 0;
+    display: block;
+    margin-top: 5px;
+    line-height: 30px;
+}
+
+.footer .list_contact .list_item a {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    color: #666;
+    font-size: 24px;
+    padding: 0;
+    line-height: 36px;
+    border-radius: 100%;
+    text-align: center;
+    border: none;
+    z-index: 1;
+    margin-right: 25px;
+    transition: .5s;
+}
+
+.footer .list_contact .list_item a:hover {
+    color: #0970f7;
+}
+
+.footer .footer_right .title {
+    font-size: 16px;
+    text-transform: capitalize;
+    padding-bottom: 20px;
+    margin-bottom: 25px;
+    position: relative;
+    color: #253237;
+    border-bottom: 1px solid #e3e3e3;
+    font-weight: 700;
+    line-height: 24px;
+}
+
+.footer .footer_right .title::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    width: 60px;
+    height: 2px;
+    background: #0970f7;
+}
+
+.footer .footer_right .list {
+    padding: 5px 0;
+}
+
+.footer .footer_right .list .link {
+    font-size: 14px;
+    line-height: 24px;
+    padding: 0;
+    display: block;
+    text-transform: capitalize;
+    color: #666;
+    margin-bottom: 0;
+    display: block;
+    position: relative;
+    transition: .5s;
+}
+
+.footer .footer_right .list .link:hover {
+    padding-left: 10px;
+    color: #0970f7;
+}
+
+.footer .footer_right .email_field {
+    margin-top: 4rem;
+    margin-bottom: 3rem;
+}
+
+.footer .footer_right .email {
+    height: 47px;
+    background: #fff;
+    border: 0;
+    color: #b1b1b1;
+    padding: 10px 20px 10px 20px;
+    display: inline-block;
+    width: 75%;
+    font-size: 14px;
+    border: none;
+    border-radius: 30px 0 0 30px;
+    outline: none;
+    overflow: visible;
+}
+
+.footer .footer_right .button {
+    text-transform: capitalize;
+    font-weight: 400;
+    font-size: 14px;
+    color: #fff;
+    background: #253237;
+    border: 0;
+    box-shadow: none;
+    padding: 0 20px;
+    line-height: 47px;
+    height: 47px;
+    border-radius: 0 30px 30px 0;
+    outline: none;
+    width: 25%;
+    transition: .5s;
+}
+
+.footer .footer_right .button:hover {
+    background: #0970f7;
+}
+
+
+.footer .footer_right .android {
+    margin-right: 15px;
+}
+
+.footer .footer_right .store img {
+    width: 15rem;
+}
+
+@media(max-width:576px) {
+    .footer .footer_right .email {
+        padding-left: 15px;
+    }
+    .footer .footer_right .button {
+        padding: 0;
+    }
+    .footer .footer_right .store img {
+        width: 13rem;
+    }
 }

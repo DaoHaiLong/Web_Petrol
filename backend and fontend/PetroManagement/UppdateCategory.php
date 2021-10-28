@@ -74,7 +74,7 @@ if(isset($_POST['update']))
 
             <div class="sidebar-header">
                 <h4>
-                    Petro Management
+                Petrol Management
                 </h4>
             </div>
             <ul class="list-unstyled components">

@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-
 include('./includes/config.php');
 if (strlen($_SESSION['aid'] == 0)) {
   header('location:logout.php');
@@ -22,7 +21,7 @@ if (strlen($_SESSION['aid'] == 0)) {
   }
 
 ?>
-  <!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -76,7 +75,7 @@ if (strlen($_SESSION['aid'] == 0)) {
 
             <div class="sidebar-header">
                 <h4>
-                    Petro Management
+                Petrol Management
                 </h4>
             </div>
             <ul class="list-unstyled components">
