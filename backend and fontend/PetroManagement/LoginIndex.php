@@ -21,15 +21,15 @@ if (isset($_POST['login'])) {
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <title>Login </title>
+    
     <!--------------------------------- css------------------------ -->
     <link rel='stylesheet' type='text/css' media='screen' href='./assets/css/login.css'>
 
     
     <!--------------------------------- JS ------------------------ -->
     <script src='js/main.js'></script>
-    
 
 </head>
 <body>

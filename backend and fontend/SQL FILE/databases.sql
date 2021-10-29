@@ -1,4 +1,5 @@
-
+CREATE DATABASE databases;
+USE   databases;
 
 CREATE TABLE AdminUser(
   id INT NOT NULL PRIMARY KEY,
