@@ -30,6 +30,9 @@ if (isset($_POST['login'])) {
     
     <!--------------------------------- JS ------------------------ -->
     <script src='js/main.js'></script>
+    <title>
+           Login 
+        </title>
 
 </head>
 <body>
